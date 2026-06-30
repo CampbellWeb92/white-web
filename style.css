@@ -6,7 +6,7 @@
 }
 body { 
     font-family: 'Cinzel', serif; 
-    color: whitesmoke; 
+    color: rgb(182, 174, 174); 
     overflow-x: hidden; 
     position: relative; 
     min-height: 100vh; 
@@ -615,10 +615,6 @@ footer{
     object-fit: cover;
     transition: transform 0.6s ease;
 }
-
-/* Profiles Typography Details */
-
-
 
 /* Integrated Luxury Interactive Shimmer and Grow Effects */
 .team-card:hover {
