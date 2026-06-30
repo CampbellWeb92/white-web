@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>White Lily</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Cinzel:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="glitter"></div>
+
+<header>
+
+<nav>
+
+<h2> White Lily</h2>
+
+<ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+
+</nav>
+
+</header><br>
+
+  <section class="services-hero">
+        <h1>Gallery</h1>
+        <p>Tailored Luxury Experience</p>
+    </section>
+
+<!-- HTML Structure -->
+<section class="slider">
+    <button class="slider-btn prev-btn">&#10094;</button>
+    <button class="slider-btn next-btn">&#10095;</button>
+    <div class="slides">
+        <img src="images/whitehotstone.png" alt="Slide 1">
+        <img src="images/1.png" alt="Slide 2">
+        <img src="images/whitemsg.png" alt="Slide 3">
+        <img src="images/3.png" alt="Slide 4">
+        <img src="images/2.png" alt="Slide 5">
+    </div>
+</section>
+
+<footer>
+
+<p>© 2026 White Lily</p>
+
+</footer>
+
+ <!-- INLINE JAVASCRIPT: Bypasses the need for an external script.js file -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            let counter = 0;
+            const slidesContainer = document.querySelector('.slides');
+            const totalSlides = document.querySelectorAll('.slides img').length;
+            const prevBtn = document.querySelector('.prev-btn');
+            const nextBtn = document.querySelector('.next-btn');
+
+            if (!slidesContainer || !prevBtn || !nextBtn) {
+                console.error("Slider components missing from the DOM.");
+                return;
+            }
+
+            function moveSlider() {
+                slidesContainer.style.transform = `translateX(-${counter * 100}%)`;
+            }
+
+            function nextSlide() {
+                counter = (counter + 1) % totalSlides;
+                moveSlider();
+            }
+
+            function prevSlide() {
+                counter = (counter - 1 + totalSlides) % totalSlides;
+                moveSlider();
+            }
+
+            nextBtn.addEventListener('click', () => {
+                nextSlide();
+                resetTimer();
+            });
+
+            prevBtn.addEventListener('click', () => {
+                prevSlide();
+                resetTimer();
+            });
+
+            let slideInterval = setInterval(nextSlide, 6000);
+
+            function resetTimer() {
+                clearInterval(slideInterval);
+                slideInterval = setInterval(nextSlide, 6000);
+            }
+        });
+    </script>
+</body>
+</html>
