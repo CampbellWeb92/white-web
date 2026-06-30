@@ -185,7 +185,7 @@ nav a:hover{
 footer{ 
     padding:40px; 
     text-align:center; 
-    color:#FFD700; 
+    color:black; 
 }
 
 /* Services Section Layout */
@@ -201,7 +201,7 @@ footer{
 
 .services-hero p {
     font-size: 20px;
-    color: #FFD700;
+    color: black;
     margin-top: 10px;
 }
 
