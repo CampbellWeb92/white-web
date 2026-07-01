@@ -5,15 +5,16 @@
     padding:0; 
     box-sizing:border-box; 
 }
+
 body { 
     font-family: 'Cinzel', serif; 
     color: rgb(182, 174, 174); 
     overflow-x: hidden; 
-    position: relative; 
     min-height: 100vh; 
     
-    /* Adds bottom spacing equal to the footer height so content isn't hidden behind it */
-    padding-bottom: 180px; 
+    /* REPLACED POSITION RULES WITH FLEX LAYOUT */
+    display: flex;
+    flex-direction: column;
 }
 
 /* Navigation - Fully Responsive Setup */
@@ -67,7 +68,6 @@ nav a:hover {
     color: #FFD700; 
 }
 
-/* Footer - Permanently Positioned at Bottom */
 footer {
     width: 100%;
     background-color: #111111; 
@@ -76,17 +76,16 @@ footer {
     box-sizing: border-box;
     font-family: 'Cinzel', serif;
     
-    /* Forces footer to overlay permanently at the bottom of the screen */
-    position: fixed;
-    bottom: 0;
-    left: 0;
+    /* UPDATED POSITION FOR DESKTOP COMPATIBILITY */
+    margin-top: auto; /* Magically pushes the footer to the bottom of the body */
+    position: relative;
     z-index: 100;
     
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-    border-top: 1px solid rgba(255, 215, 0, 0.2); /* Subtle gold accent split line */
+    border-top: 1px solid rgba(255, 215, 0, 0.2); 
 }
 
 .footer-content {
