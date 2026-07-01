@@ -217,7 +217,14 @@ footer {
     padding: 40px 20px;
     box-sizing: border-box;
     font-family: 'Cinzel', serif;
+    
+    /* ADDED FOR PERFECT CENTERING */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
+
 
 /* Centered Layout Wrapper */
 .footer-content {
