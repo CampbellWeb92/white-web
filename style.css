@@ -76,8 +76,8 @@ footer {
     box-sizing: border-box;
     font-family: 'Cinzel', serif;
     
-    /* UPDATED POSITION FOR DESKTOP COMPATIBILITY */
-    margin-top: auto; /* Magically pushes the footer to the bottom of the body */
+    /* KEEP FOOTER ROOTED TO FLOOR */
+    margin-top: auto; 
     position: relative;
     z-index: 100;
     
@@ -949,26 +949,41 @@ footer {
     font-style: italic;
     letter-spacing: 1px;
 }
-/* Mobile Responsive Navigation (Screens under 768px wide) */
-@media screen and (max-width: 768px) {
+//* --- MOBILE RESPONSIVE MEDIA QUERIES --- */
+@media (max-width: 768px) {
+    /* Stack navigation items vertically on small screens */
     nav {
-        flex-direction: column;   /* Stack the logo and menu vertically */
-        align-items: center;      /* Center both items horizontally */
-        padding: 15px 10px;       /* Give items breathing room */
-        gap: 10px;                /* Separate title from menu */
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px 20px;
     }
-
+    
     nav ul {
-        flex-direction: row;      /* Keep menu links in a horizontal row */
-        flex-wrap: wrap;          /* Let links wrap to a new line if needed */
-        justify-content: center;  /* Center the links under the heading */
-        padding: 0;
-        margin: 0;
-        gap: 12px;                /* Space out links to make tapping easy */
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
     }
-
-    nav ul li a {
-        font-size: 14px;          /* Slightly smaller text for tight spaces */
-        padding: 6px 10px;        /* Ideal tap target size for thumbs */
+    
+    nav a {
+        font-size: 14px;
+    }
+    
+    /* Shrink logo and typography slightly for mobile layouts */
+    .nav-logo {
+        height: 40px;
+    }
+    
+    .logo-container h2 {
+        font-size: 1.25rem;
+    }
+    
+    /* FIX: Remove manual padding. Let flexbox control the floor layout */
+    body {
+        padding-bottom: 0; 
+    }
+    
+    /* Force the footer content lists to wrap evenly without vertical breaks */
+    .footer-content ul {
+        gap: 12px;
     }
 }
