@@ -17,18 +17,61 @@ body {
     flex-direction: column;
 }
 
-/* Navigation - Fully Responsive Setup */
+/* Glitter Background */
+.glitter { 
+    position: fixed; 
+    width: 100%; 
+    height: 100%; 
+    
+    /* FIX 1: Explicitly drops the background to the bottom-most layer */
+    z-index: -1; 
+    
+    /* FIX 2: Guarantees your mouse completely ignores this element */
+    pointer-events: none !important; 
+    
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.6)) drop-shadow(0 1px 1px rgba(0,0,0,0.8)); 
+    background-image: radial-gradient(circle,#FFD700 1.5px,transparent 2.5px), radial-gradient(circle,#fff 1.5px,transparent 2.5px); 
+    background-size: 120px 120px; 
+    opacity: 1; 
+    animation: glitterMove 40s linear infinite; 
+}
+
+/* Navigation Container */
 nav {
     display: flex;
     justify-content: space-between; 
     align-items: center;
-    padding: 15px 40px; 
+    padding: 15px 30px;
     background: rgb(29, 28, 28); 
     backdrop-filter: blur(10px); 
     position: sticky; 
     top: 0; 
-    z-index: 100;
+    
+    /* FIX 3: Raises the navigation panel safely above everything else */
+    z-index: 9999 !important; 
 }
+
+/* Make sure the clickable area wraps the logo cleanly */
+.logo-link {
+    text-decoration: none;
+    color: inherit;
+    display: inline-block;
+    cursor: pointer !important; /* Forces the pointing hand icon to appear */
+}
+
+/* Update this rule so the gold shimmer text animation keeps working perfectly */
+.logo-link h2 { 
+    color: #FFD700; 
+    margin: 0;
+    animation: goldShimmer 4s infinite; 
+}
+
+/* Optional: Adds a premium, smooth fade interaction when mousing over the logo area */
+.logo-link:hover {
+    opacity: 0.85;
+    transition: opacity 0.3s ease;
+}
+
 
 .logo-container {
     display: flex;
@@ -143,7 +186,34 @@ footer {
         gap: 15px;
         padding: 15px 20px;
     }
-    
+    /* --- Global Navbar Typography Standardization --- */
+
+/* Targets the main navigation list links */
+nav ul li a { 
+    font-family: 'Cinzel', serif !important;
+    font-weight: 600;          /* Clean, legible semi-bold weight */
+    font-size: 16px;           /* Standard desktop size footprint */
+    letter-spacing: 1px;       /* Subtle elegant character spacing */
+    text-decoration: none; 
+    color: white; 
+    transition: color 0.4s ease;
+}
+
+/* Targets the White Lily brand title logo text */
+.logo-link h2, 
+.logo-container h2 {
+    font-family: 'Cinzel', serif !important;
+    font-weight: 700;          /* Stronger bold weight for branding contrast */
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+    margin: 0;
+}
+
+/* Fallback safety rule for the entire header content zone */
+header, nav {
+    font-family: 'Cinzel', serif !important;
+}
+
     nav ul {
         gap: 15px;
         flex-wrap: wrap;
@@ -174,17 +244,23 @@ footer {
 }
 
 /* Glitter Background */
-.glitter{ 
-    position:fixed; 
-    width:100%; 
-    height:100%; 
-    pointer-events:none; 
+/* Glitter Background */
+.glitter { 
+    position: fixed; 
+    width: 100%; 
+    height: 100%; 
+    
+    /* CRITICAL FIXES: These allow your mouse clicks to pass right through the glitter to the link below */
+    pointer-events: none; 
+    z-index: 1; 
+    
     filter: drop-shadow(0 2px 4px rgba(0,0,0,0.6)) drop-shadow(0 1px 1px rgba(0,0,0,0.8)); 
     background-image: radial-gradient(circle,#FFD700 1.5px,transparent 2.5px), radial-gradient(circle,#fff 1.5px,transparent 2.5px); 
-    background-size:120px 120px; 
+    background-size: 120px 120px; 
     opacity: 1; 
-    animation:glitterMove 40s linear infinite; 
+    animation: glitterMove 40s linear infinite; 
 }
+
 
 @keyframes glitterMove{ 
     from{ transform:translateY(0); } 
