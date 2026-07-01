@@ -554,9 +554,9 @@ footer {
 .about-container {
     display: grid;
     grid-template-columns: 1fr 1fr; /* Two equal columns */
-    gap: 60px;
+    gap: 40px;
     width: 90%;
-    max-width: 1200px;
+    max-width: 900px;
     margin: 0 auto;
     align-items: center;
 }
@@ -564,12 +564,12 @@ footer {
 /* Left Column: Image with Floating Frame Effect */
 .about-image-block {
     position: relative;
-    padding: 20px;
+    padding: 15px;
 }
 
 .about-image-block img {
-    width: 100%;
-    height: 480px;
+    width: 85%;
+    height: 460px;
     object-fit: cover;
     border-radius: 15px;
     position: relative;
@@ -583,7 +583,7 @@ footer {
     position: absolute;
     top: 0;
     left: 0;
-    width: calc(100% - 20px);
+    width: calc(90% - 20px);
     height: calc(100% - 20px);
     border: 2px solid rgba(255, 215, 0, 0.4);
     border-radius: 15px;
