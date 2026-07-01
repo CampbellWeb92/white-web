@@ -42,6 +42,33 @@ nav{
     top:0; 
     z-index:100; 
 }
+/* Align the overall navbar layout */
+nav {
+    display: flex;
+    justify-content: space-between; /* Pushes logo left and links right */
+    align-items: center;
+    padding: 15px 30px; /* Adjust padding as needed */
+}
+
+/* Flex container for the logo image and brand text */
+.logo-container {
+    display: flex;
+    align-items: center; /* Aligns logo image vertically with the H2 text */
+    gap: 12px;           /* Sets the exact spacing between logo and text */
+}
+
+/* Size and control the logo image */
+.nav-logo {
+    height: 120px;        /* Limits height to match your header text size */
+    width: 140;         /* Maintains original image aspect ratio */
+    object-fit: contain;
+}
+
+/* Remove default margin on the header text to prevent misalignment */
+.logo-container h2 {
+    margin: 0;
+}
+
 nav h2{ 
     color:#FFD700; 
     animation:goldShimmer 4s infinite; 
